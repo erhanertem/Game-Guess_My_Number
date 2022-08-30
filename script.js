@@ -18,6 +18,12 @@ console.log(document.querySelector('.guess').value); // 22
 
 */
 
+// MODAL QUERYSELECTORS
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.close-modal');
+const btnStartOver = document.querySelector('.again');
+
 //CREATE A RANDOM SECRET NUMBER
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 // //Reveal secret number for temporary testing purposes
@@ -83,16 +89,32 @@ document.querySelector('.check').addEventListener('click', function () {
   }
 });
 
-//GAME RESET FUNCTION ON CLICK
-document.querySelector('.again').addEventListener('click', function () {
-  if (gameWon) {
+// AGAIN! BTN ON CLICK
+btnStartOver.addEventListener('click', function (e) {
+  // console.log(e);
+  if (gameWon === 'true') {
     resetGame();
   } else {
-    console.log('BAD TO SEE YOU QUIT!'); // NEEDS MORE ELABORATION SUCH AS A POP UP MESSAGE
+    console.log('I am quitting!');
+    document.querySelector('.number').textContent = secretNumber; // BUG: cant get it to work
+    openModal();
     resetGame();
   }
 });
 
+// MODAL ESCAPE
+//#1.click on close btn on the modal to close the modal
+btnCloseModal.addEventListener('click', closeModal);
+//#2.click on overlay area to close the modal
+overlay.addEventListener('click', closeModal);
+//ADD KEYBOARD EVENT for closing modal with ESC BUTTON
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});
+
+//GAME FUNCTIONS
 function resetGame() {
   score = 20; //reinitialize countdown score
   secretNumber = Math.trunc(Math.random() * 20) + 1; //new secret number
@@ -125,4 +147,14 @@ function gameEndChecker(msgContent) {
 
 function displayMessage(msgContent) {
   document.querySelector('.message').textContent = msgContent;
+}
+
+//MODAL FUNCTIONS
+function closeModal() {
+  modal.classList.add('hidden'); // make modal hide
+  overlay.classList.add('hidden'); //make overlay hide
+}
+function openModal() {
+  modal.classList.remove('hidden'); // takes the hidden from its class name to make modal display
+  overlay.classList.remove('hidden'); //make overlay display
 }

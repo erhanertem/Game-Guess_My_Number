@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script type="module" defer src="script.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Guess My Number!</title>
   </head>
   <body>
     <header>
-      <h1>Guess My Number!</h1>
+      <h1 class="header">Guess My Number!</h1>
       <p class="between">(Between 1 and 20)</p>
       <button class="btn again">Again!</button>
       <div class="number">?</div>
@@ -31,11 +32,10 @@
     <!-- GAME QUIT MODAL -->
     <div class="modal hidden">
       <button class="close-modal">&times;</button>
-      <h1>OII!</h1>
-      <p>BAD TO SEE YOU QUIT! SEE YOU AROUND NEXT TIME.</p>
+      <h1 class="modal-text">Oi!</h1>
+      <p class="modal-text">BAD TO SEE YOU QUITTING!</p>
     </div>
     <div class="overlay hidden"></div>
-
-    <script src="script.js"></script>
+    <!--  -->
   </body>
 </html>
