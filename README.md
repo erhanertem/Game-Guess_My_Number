@@ -4,8 +4,9 @@
 
 ## Udemy The Complete JavaScript Course 2022 From Zero to Expert! by Jonas Schmedtmann
 
-### **Objective:** Create a 'Guess My Number' browser-based game
+### **Objective:** Create a browser-based game called 'Guess My Number'
 
+- Explore DOM API
 - Implement Javascript DOM and Events fundamentals
 
 &emsp;
