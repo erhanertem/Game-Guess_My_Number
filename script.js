@@ -81,3 +81,30 @@ document.querySelector('.check').addEventListener('click', function () {
     }
   }
 });
+
+//GAME RESET FUNCTION ON CLICK
+document.querySelector('.again').addEventListener('click', function () {
+  if (gameWon) {
+    resetGame();
+  } else {
+    console.log('BAD TO SEE YOU QUIT!');
+    resetGame();
+  }
+});
+
+function resetGame() {
+  score = 20; //reinitialize countdown score
+  secretNumber = Math.trunc(Math.random() * 20) + 1; //new secret number
+  document.querySelector('.message').textContent = 'Start guessing...'; // reset initial message on html
+  document.querySelector('.score').textContent = score; // reset initial countdown score to 20 on html
+  document.querySelector('.number').textContent = '?'; // reset initial guess number placeholder to ? on html
+  document.querySelector('.guess').value = ''; // reset input field on html
+  document.querySelector('body').style.backgroundColor = '#222'; //revert to intial backgroud color
+  document.querySelector('.number').style.width = '15rem'; //revert to initial width of the element
+
+  gameWon = false; //reset status
+  //Reveal secret number for temporary testing purposes
+  document.querySelector('.number').textContent = secretNumber;
+
+  document.querySelector('.check').style.visibility = 'visible'; // reveal the check button
+}
