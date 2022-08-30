@@ -32,6 +32,7 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highscore = 0;
 let gameWon = 'false';
+let gamePlayedThru = 'false';
 
 //INPUT NUMBER CHECK FUNCTION ON CLICK (on a selected DOM element with a class 'check' with a JS 'click' eventhandler function)
 document.querySelector('.check').addEventListener('click', function () {
@@ -92,11 +93,11 @@ document.querySelector('.check').addEventListener('click', function () {
 // AGAIN! BTN ON CLICK
 btnStartOver.addEventListener('click', function (e) {
   // console.log(e);
-  if (gameWon === 'true') {
+  if (gameWon === 'true' || gamePlayedThru === 'true') {
     resetGame();
   } else {
     console.log('I am quitting!');
-    document.querySelector('.number').textContent = secretNumber; // BUG: cant get it to work
+    document.querySelector('.number').textContent = secretNumber; // cant get it to work
     openModal();
     resetGame();
   }
@@ -125,7 +126,8 @@ function resetGame() {
   document.querySelector('body').style.backgroundColor = '#222'; //revert to initial backgroud color
   document.querySelector('.number').style.width = '15rem'; //revert to initial width of the element
 
-  gameWon = false; //reset status
+  gameWon = 'false'; //reset status
+  gamePlayedThru = 'false'; //reset status
   // //Reveal secret number for temporary testing purposes
   // document.querySelector('.number').textContent = secretNumber;
 
@@ -144,6 +146,7 @@ function gameEndChecker(msgContent) {
     document.querySelector('.check').style.visibility = 'hidden'; // conceal the check button
     document.querySelector('.score').textContent = 0; //zero the score to html
     document.querySelector('body').style.backgroundColor = '#933828'; //revert to initial backgroud color
+    gamePlayedThru = 'true';
   }
 }
 
