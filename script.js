@@ -20,8 +20,8 @@ console.log(document.querySelector('.guess').value); // 22
 
 //CREATE A RANDOM SECRET NUMBER
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
-//Reveal secret number for temporary testing purposes
-document.querySelector('.number').textContent = secretNumber;
+// //Reveal secret number for temporary testing purposes
+// document.querySelector('.number').textContent = secretNumber;
 //INITIAL GAME SCORE COUNTER
 let score = 20;
 let highscore = 0;
@@ -105,8 +105,8 @@ function resetGame() {
   document.querySelector('.number').style.width = '15rem'; //revert to initial width of the element
 
   gameWon = false; //reset status
-  //Reveal secret number for temporary testing purposes
-  document.querySelector('.number').textContent = secretNumber;
+  // //Reveal secret number for temporary testing purposes
+  // document.querySelector('.number').textContent = secretNumber;
 
   document.querySelector('.check').style.visibility = 'visible'; // reveal the check button
 }
