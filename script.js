@@ -16,13 +16,45 @@ console.log(document.querySelector('.guess').value); //initially null
 document.querySelector('.guess').value = 22; //assign input a value of 22
 console.log(document.querySelector('.guess').value); // 22
 
-//Add evenhandler JS function on a selected DOM element with a class 'check'
+*/
+
+//CREATE A RANDOM SECRET NUMBER
+const secretNumber = Math.trunc(Math.random() * 20) + 1;
+//Reveal secret number for temporary testing purposes
+document.querySelector('.number').textContent = secretNumber;
+//INITIAL GAME SCORE COUNTER
+let score = 20;
+
+//INPUT NUMBER CHECK (on a selected DOM element with a class 'check' with a JS 'click' eventhandler function)
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
-  console.log(guess, typeof guess);
 
   if (!guess) {
     document.querySelector('.message').textContent = '🚫 No Number!';
+  } else if (guess > 20) {
+    document.querySelector('.message').textContent =
+      '🚫 Input equal or below 20!';
+  } else if (guess === secretNumber) {
+    document.querySelector('.message').textContent = '🎉 Correct Number!';
+  } else if (guess > secretNumber) {
+    //check if score hit 0 or not then execute the core code else render end of game
+    if (score > 1) {
+      document.querySelector('.message').textContent = '🔻 Too high!';
+      score--; //reduce the score
+      document.querySelector('.score').textContent = score; //render to html
+    } else {
+      document.querySelector('.message').textContent = '💥 End of game!';
+      document.querySelector('.score').textContent = 0; //zero the score to html
+    }
+  } else if (guess < secretNumber) {
+    //check if score hit 0 or not then execute the core code else render end of game
+    if (score > 1) {
+      document.querySelector('.message').textContent = '🔺 Too low!';
+      score--; //reduce the score
+      document.querySelector('.score').textContent = score; //render to html
+    } else {
+      document.querySelector('.message').textContent = '💥 End of game!';
+      document.querySelector('.score').textContent = 0; //zero the score to html
+    }
   }
 });
-*/
