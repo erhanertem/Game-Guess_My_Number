@@ -33,7 +33,7 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').textContent = '🚫 No Number!'; //check whether input is number or falsy value
   } else if (guess > 20 || guess < 0) {
     document.querySelector('.message').textContent =
-      '🚫 Input number between 1 and 20!'; //filter out numbers above 20 - game rule
+      '🚫 Input number between 1 and 20!'; //filter out numbers between 1 and 20 - game rule
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Correct Number!';
   } else if (guess > secretNumber) {
