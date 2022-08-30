@@ -8,6 +8,8 @@
 
 - Explore DOM API
 - Implement Javascript DOM and Events fundamentals
+  - Manipulate HTML content thru JS
+  - Override CSS content thru JS via inline CSS
 
 &emsp;
 

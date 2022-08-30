@@ -29,14 +29,24 @@ let score = 20;
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
 
+  // when there is a falsy input
   if (!guess) {
     document.querySelector('.message').textContent = '🚫 No Number!'; //check whether input is number or falsy value
-  } else if (guess > 20 || guess < 0) {
+  }
+  // when it vioplates the game input rule
+  else if (guess > 20 || guess < 0) {
     document.querySelector('.message').textContent =
       '🚫 Input number between 1 and 20!'; //filter out numbers between 1 and 20 - game rule
-  } else if (guess === secretNumber) {
+  }
+  // when the player wins
+  else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Correct Number!';
-  } else if (guess > secretNumber) {
+
+    document.querySelector('body').style.backgroundColor = '#60b347'; //change the entire background color
+    document.querySelector('.number').style.width = '30rem'; //increase the width of the element
+  }
+  // when guess is over secret number
+  else if (guess > secretNumber) {
     //check if score hit 0 or not then execute the core code else render end of game
     if (score > 1) {
       document.querySelector('.message').textContent = '🔻 Too high!';
@@ -46,7 +56,9 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.message').textContent = '💥 End of game!';
       document.querySelector('.score').textContent = 0; //zero the score to html
     }
-  } else if (guess < secretNumber) {
+  }
+  // when guess is below secret number
+  else if (guess < secretNumber) {
     //check if score hit 0 or not then execute the core code else render end of game
     if (score > 1) {
       document.querySelector('.message').textContent = '🔺 Too low!';
