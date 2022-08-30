@@ -44,6 +44,8 @@ document.querySelector('.check').addEventListener('click', function () {
 
     document.querySelector('body').style.backgroundColor = '#60b347'; //change the entire background color
     document.querySelector('.number').style.width = '30rem'; //increase the width of the element
+    //Reveal secret number inside the box instead of ? mark
+    document.querySelector('.number').textContent = secretNumber;
   }
   // when guess is over secret number
   else if (guess > secretNumber) {
