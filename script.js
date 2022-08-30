@@ -33,16 +33,15 @@ document.querySelector('.check').addEventListener('click', function () {
 
   // when there is a falsy input
   if (!guess) {
-    document.querySelector('.message').textContent = '🚫 No Number!'; //check whether input is number or falsy value
+    displayMessage('🚫 No Number!'); //check whether input is number or falsy value
   }
   // when it vioplates the game input rule
   else if (guess > 20 || guess < 0) {
-    document.querySelector('.message').textContent =
-      '🚫 Input number between 1 and 20!'; //filter out numbers between 1 and 20 - game rule
+    displayMessage('🚫 Input number between 1 and 20!'); //filter out numbers between 1 and 20 - game rule
   }
   // when the player wins
   else if (guess === secretNumber) {
-    document.querySelector('.message').textContent = '🎉 Correct Number!';
+    displayMessage('🎉 Correct Number!');
 
     document.querySelector('body').style.backgroundColor = '#60b347'; // change the entire background color
     document.querySelector('.number').style.width = '30rem'; // increase the width of the element
@@ -97,7 +96,7 @@ document.querySelector('.again').addEventListener('click', function () {
 function resetGame() {
   score = 20; //reinitialize countdown score
   secretNumber = Math.trunc(Math.random() * 20) + 1; //new secret number
-  document.querySelector('.message').textContent = 'Start guessing...'; // reset initial message on html
+  displayMessage('Start guessing...'); // reset initial message on html
   document.querySelector('.score').textContent = score; // reset initial countdown score to 20 on html
   document.querySelector('.number').textContent = '?'; // reset initial guess number placeholder to ? on html
   document.querySelector('.guess').value = ''; // reset input field on html
@@ -118,8 +117,12 @@ function gameEndChecker(msgContent) {
     score--; //reduce the score
     document.querySelector('.score').textContent = score; //render to html
   } else {
-    document.querySelector('.message').textContent = '💥 End of game!';
+    displayMessage('💥 End of game!');
     document.querySelector('.score').textContent = 0; //zero the score to html
     document.querySelector('body').style.backgroundColor = '#933828'; //revert to initial backgroud color
   }
+}
+
+function displayMessage(msgContent) {
+  document.querySelector('.message').textContent = `${msgContent}`;
 }
