@@ -140,6 +140,7 @@ function gameEndChecker(msgContent) {
     document.querySelector('.score').textContent = score; //render to html
   } else {
     displayMessage('💥 End of game!');
+    document.querySelector('.number').textContent = secretNumber;
     document.querySelector('.score').textContent = 0; //zero the score to html
     document.querySelector('body').style.backgroundColor = '#933828'; //revert to initial backgroud color
   }
