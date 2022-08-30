@@ -58,27 +58,29 @@ document.querySelector('.check').addEventListener('click', function () {
   }
   // when guess is over secret number
   else if (guess > secretNumber) {
-    //check if score hit 0 or not then execute the core code else render end of game
-    if (score > 1) {
-      document.querySelector('.message').textContent = '🔻 Too high!';
-      score--; //reduce the score
-      document.querySelector('.score').textContent = score; //render to html
-    } else {
-      document.querySelector('.message').textContent = '💥 End of game!';
-      document.querySelector('.score').textContent = 0; //zero the score to html
-    }
+    gameEndChecker('🔻 Too high!');
+    // //check if score hit 0 or not then execute the core code else render end of game
+    // if (score > 1) {
+    //   document.querySelector('.message').textContent = '🔻 Too high!';
+    //   score--; //reduce the score
+    //   document.querySelector('.score').textContent = score; //render to html
+    // } else {
+    //   document.querySelector('.message').textContent = '💥 End of game!';
+    //   document.querySelector('.score').textContent = 0; //zero the score to html
+    // }
   }
   // when guess is below secret number
   else if (guess < secretNumber) {
-    //check if score hit 0 or not then execute the core code else render end of game
-    if (score > 1) {
-      document.querySelector('.message').textContent = '🔺 Too low!';
-      score--; //reduce the score
-      document.querySelector('.score').textContent = score; //render to html
-    } else {
-      document.querySelector('.message').textContent = '💥 End of game!';
-      document.querySelector('.score').textContent = 0; //zero the score to html
-    }
+    gameEndChecker('🔺 Too low!');
+    // //check if score hit 0 or not then execute the core code else render end of game
+    // if (score > 1) {
+    //   document.querySelector('.message').textContent = '🔺 Too low!';
+    //   score--; //reduce the score
+    //   document.querySelector('.score').textContent = score; //render to html
+    // } else {
+    //   document.querySelector('.message').textContent = '💥 End of game!';
+    //   document.querySelector('.score').textContent = 0; //zero the score to html
+    // }
   }
 });
 
@@ -87,7 +89,7 @@ document.querySelector('.again').addEventListener('click', function () {
   if (gameWon) {
     resetGame();
   } else {
-    console.log('BAD TO SEE YOU QUIT!');
+    console.log('BAD TO SEE YOU QUIT!'); // NEEDS MORE ELABORATION SUCH AS A POP UP MESSAGE
     resetGame();
   }
 });
@@ -107,4 +109,16 @@ function resetGame() {
   document.querySelector('.number').textContent = secretNumber;
 
   document.querySelector('.check').style.visibility = 'visible'; // reveal the check button
+}
+
+function gameEndChecker(msgContent) {
+  //check if score hit 0 or not then execute the core code else render end of game
+  if (score > 1) {
+    document.querySelector('.message').textContent = `${msgContent}`;
+    score--; //reduce the score
+    document.querySelector('.score').textContent = score; //render to html
+  } else {
+    document.querySelector('.message').textContent = '💥 End of game!';
+    document.querySelector('.score').textContent = 0; //zero the score to html
+  }
 }
