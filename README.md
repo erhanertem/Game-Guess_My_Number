@@ -13,7 +13,7 @@
 
 &emsp;
 
-#### Link to Project &rarr; [Guess My Number](https://guessmynumber-erhan-ertem.netlify.app)
+#### Link to Project &rarr; [Guess-My-Number Game](https://guessmynumber-erhan-ertem.netlify.app)
 
 ---
 
