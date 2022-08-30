@@ -113,7 +113,7 @@ function resetGame() {
 function gameEndChecker(msgContent) {
   //check if score hit 0 or not then execute the core code else render end of game
   if (score > 1) {
-    document.querySelector('.message').textContent = `${msgContent}`;
+    document.querySelector('.message').textContent = msgContent;
     score--; //reduce the score
     document.querySelector('.score').textContent = score; //render to html
   } else {
@@ -124,5 +124,5 @@ function gameEndChecker(msgContent) {
 }
 
 function displayMessage(msgContent) {
-  document.querySelector('.message').textContent = `${msgContent}`;
+  document.querySelector('.message').textContent = msgContent;
 }
