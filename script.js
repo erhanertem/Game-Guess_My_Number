@@ -19,13 +19,15 @@ console.log(document.querySelector('.guess').value); // 22
 */
 
 //CREATE A RANDOM SECRET NUMBER
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 //Reveal secret number for temporary testing purposes
 document.querySelector('.number').textContent = secretNumber;
 //INITIAL GAME SCORE COUNTER
 let score = 20;
+let highscore = 0;
+let gameWon = 'false';
 
-//INPUT NUMBER CHECK (on a selected DOM element with a class 'check' with a JS 'click' eventhandler function)
+//INPUT NUMBER CHECK FUNCTION ON CLICK (on a selected DOM element with a class 'check' with a JS 'click' eventhandler function)
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
 
@@ -42,10 +44,17 @@ document.querySelector('.check').addEventListener('click', function () {
   else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Correct Number!';
 
-    document.querySelector('body').style.backgroundColor = '#60b347'; //change the entire background color
-    document.querySelector('.number').style.width = '30rem'; //increase the width of the element
-    //Reveal secret number inside the box instead of ? mark
-    document.querySelector('.number').textContent = secretNumber;
+    document.querySelector('body').style.backgroundColor = '#60b347'; // change the entire background color
+    document.querySelector('.number').style.width = '30rem'; // increase the width of the element
+    document.querySelector('.number').textContent = secretNumber; // reveal secret number
+    document.querySelector('.check').style.visibility = 'hidden'; // conceal the check button
+
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore; // change the highscore on html
+    }
+
+    gameWon = 'true'; // store gamewon status for again! btn
   }
   // when guess is over secret number
   else if (guess > secretNumber) {
