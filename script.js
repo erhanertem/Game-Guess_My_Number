@@ -101,7 +101,7 @@ function resetGame() {
   document.querySelector('.score').textContent = score; // reset initial countdown score to 20 on html
   document.querySelector('.number').textContent = '?'; // reset initial guess number placeholder to ? on html
   document.querySelector('.guess').value = ''; // reset input field on html
-  document.querySelector('body').style.backgroundColor = '#222'; //revert to intial backgroud color
+  document.querySelector('body').style.backgroundColor = '#222'; //revert to initial backgroud color
   document.querySelector('.number').style.width = '15rem'; //revert to initial width of the element
 
   gameWon = false; //reset status
@@ -120,5 +120,6 @@ function gameEndChecker(msgContent) {
   } else {
     document.querySelector('.message').textContent = '💥 End of game!';
     document.querySelector('.score').textContent = 0; //zero the score to html
+    document.querySelector('body').style.backgroundColor = '#933828'; //revert to initial backgroud color
   }
 }
