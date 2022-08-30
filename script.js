@@ -30,10 +30,10 @@ document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
 
   if (!guess) {
-    document.querySelector('.message').textContent = '🚫 No Number!';
-  } else if (guess > 20) {
+    document.querySelector('.message').textContent = '🚫 No Number!'; //check whether input is number or falsy value
+  } else if (guess > 20 || guess < 0) {
     document.querySelector('.message').textContent =
-      '🚫 Input equal or below 20!';
+      '🚫 Input number between 1 and 20!'; //filter out numbers above 20 - game rule
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Correct Number!';
   } else if (guess > secretNumber) {
