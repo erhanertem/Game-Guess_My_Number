@@ -10,11 +10,13 @@
 - Implement Javascript DOM and Events fundamentals
   - Manipulate HTML content thru JS
   - Override CSS content thru JS via inline CSS
-- Elaborated the final intended design and functioning 
+- Elaborated the final intended design and functioning
 
 &emsp;
 
 #### Link to Project &rarr; [Guess-My-Number Game](https://guessmynumber-erhan-ertem.netlify.app)
+
+![Screenshot](screenshot.gif)
 
 ---
 
